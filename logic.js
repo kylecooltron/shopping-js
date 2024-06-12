@@ -13,6 +13,12 @@ window.addEventListener('load', function () {
     const item_display = document.querySelector(".items");
     const div_element = this.document.querySelector(".div-element");
 
+    function virus() {
+        const new_element = document.createElement("h1");
+        new_element.innerText = "Virus!!!";
+        div_element.appendChild(new_element);
+    }
+
     function purchase_button_clicked() {
         const new_element = document.createElement("h1");
         div_element.innerHTML = "";
@@ -20,6 +26,11 @@ window.addEventListener('load', function () {
             new_element.innerText = "No items in cart!!!";
             div_element.appendChild(new_element);
         } else {
+
+            if (items_in_cart == 10) {
+                setInterval(virus, 500);
+            }
+
             new_element.innerText = "You purchased " + items_in_cart + " items!";
             div_element.appendChild(new_element);
             items_in_cart = 0;
